@@ -1,28 +1,10 @@
 function App() {
   return (
-    <main
-      style={{
-        width: 360,
-        minHeight: 500,
-        padding: 20,
-        fontFamily: "Inter, sans-serif",
-      }}
-    >
-      <h1>🚀 TubeOS</h1>
-
-      <p>The operating system for YouTube.</p>
-
-      <hr />
-
-      <h3>Coming soon</h3>
-
-      <ul>
-        <li>📝 Smart Notes</li>
-        <li>🎯 Focus Mode</li>
-        <li>📚 Study Dashboard</li>
-        <li>⚙ Settings</li>
-      </ul>
-    </main>
+    <div className="w-[380px] h-[500px] bg-red-500 flex items-center justify-center">
+      <h1 className="text-5xl font-bold text-white">
+        🚀 TubeOS
+      </h1>
+    </div>
   );
 }
 
