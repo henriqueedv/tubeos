@@ -1,46 +1,59 @@
-import Header from "../../components/Header/Header";
-import MenuItem from "../../components/MenuItem/MenuItem";
+import {
+  NotebookPen,
+  Focus,
+  LayoutDashboard,
+  Settings,
+} from "lucide-react";
 
-function Home() {
+import Header from "@/components/Header/Header";
+import FeatureCard from "@/components/FeatureCard/FeatureCard";
+import { useNavigation } from "@/context/NavigationContext";
+
+export default function Home() {
+  const { navigate } = useNavigation();
+
   return (
-    <main
-      style={{
-        width: 360,
-        minHeight: 500,
-        background: "#0F172A",
-        padding: 20,
-      }}
-    >
+    <main className="min-h-[500px] bg-slate-950 p-5">
       <Header
-        title="🚀 TubeOS"
-        subtitle="The operating system for YouTube"
+        title="TubeOS"
+        subtitle="Study smarter on YouTube."
       />
 
-      <MenuItem
-        emoji="📝"
-        title="Smart Notes"
-        description="Create notes while watching videos."
-      />
+      <div className="space-y-3">
+        <FeatureCard
+          icon={<NotebookPen size={22} />}
+          title="Smart Notes"
+          description="Capture notes linked to the exact video timestamp."
+          badge="Core"
+          onClick={() => navigate("smart-notes")}
+        />
 
-      <MenuItem
-        emoji="🎯"
-        title="Focus Mode"
-        description="Remove distractions from YouTube."
-      />
+        <FeatureCard
+          icon={<Focus size={22} />}
+          title="Focus Mode"
+          description="Hide distractions and stay focused while studying."
+          onClick={() => navigate("focus-mode")}
+        />
 
-      <MenuItem
-        emoji="📚"
-        title="Dashboard"
-        description="Access your study history."
-      />
+        <FeatureCard
+          icon={<LayoutDashboard size={22} />}
+          title="Dashboard"
+          description="Track your study sessions and learning progress."
+          badge="Soon"
+          onClick={() => navigate("dashboard")}
+        />
 
-      <MenuItem
-        emoji="⚙️"
-        title="Settings"
-        description="Customize your experience."
-      />
+        <FeatureCard
+          icon={<Settings size={22} />}
+          title="Settings"
+          description="Customize TubeOS your way."
+          onClick={() => navigate("settings")}
+        />
+      </div>
+
+      <footer className="mt-6 border-t border-slate-800 pt-4 text-center text-xs text-slate-500">
+        TubeOS v0.1.0
+      </footer>
     </main>
   );
 }
-
-export default Home;

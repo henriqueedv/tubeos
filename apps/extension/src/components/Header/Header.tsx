@@ -1,41 +1,29 @@
-import { theme } from "../../styles/theme";
-
 type HeaderProps = {
   title: string;
   subtitle: string;
 };
 
-function Header({ title, subtitle }: HeaderProps) {
+export default function Header({
+  title,
+  subtitle,
+}: HeaderProps) {
   return (
-    <header
-      style={{
-        marginBottom: theme.spacing.lg,
-      }}
-    >
-      <h1
-        style={{
-          margin: 0,
-          fontSize: 28,
-          fontWeight: 700,
-          color: theme.colors.text,
-        }}
-      >
-        {title}
-      </h1>
+    <header className="mb-8">
+      <div className="flex items-center gap-3">
+        <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-600 text-2xl shadow-lg">
+          🚀
+        </div>
 
-      <p
-        style={{
-          marginTop: theme.spacing.sm,
-          marginBottom: 0,
-          fontSize: 14,
-          lineHeight: 1.5,
-          color: theme.colors.textSecondary,
-        }}
-      >
-        {subtitle}
-      </p>
+        <div>
+          <h1 className="text-2xl font-bold text-white">
+            {title}
+          </h1>
+
+          <p className="text-sm text-slate-400">
+            {subtitle}
+          </p>
+        </div>
+      </div>
     </header>
   );
 }
-
-export default Header;
