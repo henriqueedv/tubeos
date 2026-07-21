@@ -2,8 +2,11 @@ import { defineManifest } from "@crxjs/vite-plugin";
 
 export default defineManifest({
   manifest_version: 3,
+
   name: "TubeOS",
+
   version: "0.1.0",
+
   description: "The operating system for YouTube.",
 
   action: {
@@ -11,9 +14,21 @@ export default defineManifest({
     default_title: "TubeOS",
   },
 
-  permissions: ["storage", "activeTab"],
+  permissions: [
+    "storage",
+    "activeTab",
+  ],
 
   host_permissions: [
-    "https://www.youtube.com/*"
+    "https://www.youtube.com/*",
+  ],
+
+  content_scripts: [
+    {
+      matches: [
+        "https://www.youtube.com/*",
+      ],
+      js: ["src/content/youtube.ts"],
+    },
   ],
 });
