@@ -20,10 +20,11 @@ const defaultSettings: FocusSettings = {
 
 export async function getFocusSettings(): Promise<FocusSettings> {
   return new Promise((resolve) => {
-    chrome.storage.local.get([STORAGE_KEY], (result) => {
-      resolve(
-        result[STORAGE_KEY] ?? defaultSettings
-      );
+    chrome.storage.local.get(STORAGE_KEY, (result) => {
+      resolve({
+        ...defaultSettings,
+        ...(result[STORAGE_KEY] ?? {}),
+      });
     });
   });
 }
@@ -39,4 +40,8 @@ export async function saveFocusSettings(
       () => resolve()
     );
   });
+}
+
+export async function resetFocusSettings(): Promise<void> {
+  return saveFocusSettings(defaultSettings);
 }
