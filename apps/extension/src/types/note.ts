@@ -1,8 +1,21 @@
 export type Note = {
   id: string;
+
+  title: string;
+
+  content: string;
+
   videoId: string;
+
   videoTitle: string;
+
   timestamp: number;
-  text: string;
+
   createdAt: number;
+
+  updatedAt: number;
+
+  favorite: boolean;
+
+  tags: string[];
 };
