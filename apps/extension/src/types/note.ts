@@ -1,3 +1,8 @@
+export interface Flashcard {
+  question: string;
+  answer: string;
+}
+
 export type Note = {
   id: string;
 
@@ -18,4 +23,6 @@ export type Note = {
   favorite: boolean;
 
   tags: string[];
+
+  flashcards?: Flashcard[];
 };
